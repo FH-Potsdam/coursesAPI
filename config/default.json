@@ -1,0 +1,11 @@
+{
+	"database": {
+		"name": "charactersDB",
+		"host": "localhost",
+		"port": 27017
+	},
+	"api": {
+		"host": "localhost",
+		"port": 3000
+	}
+}
