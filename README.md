@@ -85,7 +85,7 @@ curl -i -X http://localhost:3000/locations/
 curl -i -X http://localhost:3000/relationships/
 ```
 
-The name of the resources and the collection will alwas be written in lowercase and in the plural form to avoid any inconsistencies and to improve intuitiveness.
+The name of the resources and the collection will always be written in lowercase and in the plural form to avoid inconsistencies and improve intuitiveness.
 
 ## Collaborators
 - [Julia Freyhoff](https://github.com/antsteelmule) — @antsteelmule
