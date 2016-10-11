@@ -1,5 +1,4 @@
-// TODO: Implement validation
-const isStudyCode = (value) => Boolean(value);
+const isStudyCode = (value) => /^([1-3][1-6])(.+?(?=-))?(-)([A-Z]{1,3})$/g.test(value);
 
 export default {
 	type: String,
