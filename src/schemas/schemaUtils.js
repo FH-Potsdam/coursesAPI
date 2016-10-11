@@ -5,3 +5,5 @@ export const isYear = (value) => hasLength(value, 4);
 
 export const isOneOf = (value, arrayOfExpectedValues) =>
 	arrayOfExpectedValues.some((expectedValue) => expectedValue === value);
+
+export const isName = (value) => /^[\pL\-\ \']*$/g.test(value);
