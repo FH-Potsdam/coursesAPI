@@ -9,7 +9,12 @@
     "build": "webpack --env.prod -p",
     "serve": "export NODE_ENV=production ; node dist/api.js"
   },
-  "keywords": [ "API", "REST", "Courses", "Studies" ],
+  "keywords": [
+    "API",
+    "REST",
+    "Courses",
+    "Studies"
+  ],
   "contributors": [
     "Bela Kurek - @q-rec",
     "Julia Freyhoff - @antsteelmule",
@@ -26,7 +31,8 @@
     "config": "^1.21.0",
     "express": "^4.14.0",
     "http-status-codes": "^1.0.6",
-    "mongoose": "^4.6.1"
+    "mongoose": "^4.6.1",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": "6.7.0",
