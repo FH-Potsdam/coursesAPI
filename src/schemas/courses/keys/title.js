@@ -1,7 +1,6 @@
 import { isInLengthRange } from '../../schemaUtils';
 
-const isValidTitle = (title) =>
-	isInLengthRange(title.split(' ').split('\n'), 1, 100);
+const isValidTitle = (title) => isInWordsRange(value, 1, 100);
 
 export default {
 	type: String,

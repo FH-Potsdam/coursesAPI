@@ -8,3 +8,6 @@ export const isOneOf = (value, arrayOfExpectedValues) =>
 
 export const isInLengthRange = (value, minLength, maxLength) =>
 	value.length >= minLength && value.length <= maxLength;
+
+export const isInWordsRange = (value, minLength, maxLength) =>
+	isInLengthRange(value.match(/\S+/g), minLength, maxLength);
