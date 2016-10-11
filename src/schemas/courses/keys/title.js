@@ -1,6 +1,6 @@
-import { isInLengthRange } from '../../schemaUtils';
+import { isInWordsRange } from '../../schemaUtils';
 
-const isValidTitle = (title) => isInWordsRange(value, 1, 100);
+const isValidTitle = (title) => isInWordsRange(title, 1, 100);
 
 export default {
 	type: String,
