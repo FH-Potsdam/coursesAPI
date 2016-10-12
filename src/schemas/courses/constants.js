@@ -16,4 +16,9 @@ export default {
 		'everyFirstOfMonth': 'everyFirstOfMonth: Occurs every first Date\'s' +
 			' day-of-the-week of the month. i.e. Every month\'s first monday.',
 	}
+	LOCATION_TYPES: {
+		'1': '1 (Praxisraum)',
+		'2': '2 (Theorieraum)',
+		'3': '3 (Hörsaal)',
+		'4': '4 (Sonstiges)'
 };
