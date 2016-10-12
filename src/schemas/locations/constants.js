@@ -19,7 +19,7 @@ export default {
 		MIN: 0,
 		MAX: 100
 	},
-	ROOM_NUMBER: {
+	ROOM_NUMBERS: {
 		MIN: 1,
 		MAX: 1000
 	}
