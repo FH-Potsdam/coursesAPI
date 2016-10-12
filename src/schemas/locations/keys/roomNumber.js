@@ -9,7 +9,7 @@ export default {
 	validate: {
 		validator: isValidRoomNumber,
 		message: '"{VALUE}" is not a valid room number. Please enter a number ' +
-			'between MIN and MAX characters.'
+			`between ${MIN} and ${MAX} characters.`
 	},
-		required: false
+	required: false
 };
