@@ -6,5 +6,5 @@ export default {
 		validator: isName,
 		message: '"{VALUE}" is not a valid city Name.'
 	},
-		required: false
+	required: false
 };

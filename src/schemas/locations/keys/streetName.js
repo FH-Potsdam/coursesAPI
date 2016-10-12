@@ -9,5 +9,5 @@ export default {
 		message: '"{VALUE}" is not a valid street name. Please enter a number ' +
 			'between 1 and 100 characters.'
 	},
-		required: false
+	required: false
 };

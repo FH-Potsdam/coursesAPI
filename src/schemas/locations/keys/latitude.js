@@ -6,5 +6,5 @@ export default {
 		validator: isLonLan,
 		message: '"{VALUE}" is not a valid latitude.'
 	},
-		required: false
+	required: false
 };

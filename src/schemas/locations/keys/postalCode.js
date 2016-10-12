@@ -9,5 +9,5 @@ export default {
 		message: '"{VALUE}" is not a valid postal code. Please enter a number ' +
 			'between 1 and 8 characters.'
 	},
-		required: false
+	required: false
 };
