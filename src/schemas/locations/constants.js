@@ -26,5 +26,9 @@ export default {
 	STREET_NAME: {
 		MIN: 3,
 		MAX: 200
+	},
+	STREET_NUMBER: {
+		MIN: 1,
+		MAX: 10000
 	}
 };
