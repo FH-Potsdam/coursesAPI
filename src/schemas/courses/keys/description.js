@@ -1,12 +1,14 @@
 import { isInWordsRange } from '../../schemaUtils';
+import { DESCRIPTION } from '../constants';
 
-const isValidDescription = (value) => isInWordsRange(value, 1, 1000);
+const { MIN, MAX } = DESCRIPTION;
+const isValidDescription = (value) => isInWordsRange(value, MIN, MAX);
 
 export default {
 	type: String,
 	validate: {
 		validator: isValidDescription,
 		message: 'The given description is not valid. Please make sure is a ' +
-			'string including one to hundred words.'
+			`string including from ${MIN} to ${MAX} words.`
 	}
 };

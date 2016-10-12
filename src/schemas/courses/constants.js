@@ -27,10 +27,9 @@ export default {
 	CREDITS: {
 		MIN: 1,
 		MAX: 180
+	},
+	DESCRIPTION: {
+		MIN: 100,
+		MAX: 1000
 	}
-	LOCATION_TYPES: {
-		'1': '1 (Praxisraum)',
-		'2': '2 (Theorieraum)',
-		'3': '3 (Hörsaal)',
-		'4': '4 (Sonstiges)'
 };
