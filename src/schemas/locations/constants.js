@@ -22,5 +22,9 @@ export default {
 	ROOM_NUMBERS: {
 		MIN: 1,
 		MAX: 1000
+	},
+	STREET_NAME: {
+		MIN: 3,
+		MAX: 200
 	}
 };

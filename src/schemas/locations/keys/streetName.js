@@ -1,13 +1,17 @@
 import { isInLengthRange } from '../../schemaUtils';
+import { STREET_NAME } from '../constants';
 
-const isValidStreetname = (title) => isInLengthRange(title, 1, 100);
+const { MIN, MAX } = STREET_NAME;
+const isValidStreetName = (value) =>
+	!/\d/.test(value) && isInLengthRange(value, MIN, MAX);
 
 export default {
 	type: String,
 	validate: {
-		validator: isValidStreetname,
-		message: '"{VALUE}" is not a valid street name. Please enter a number ' +
-			'between 1 and 100 characters.'
+		validator: isValidStreetName,
+		message: '"{VALUE}" is not a valid street name. Please enter a string' +
+			` from ${MIN} to ${MAX} characters long without the street number.` +
+			' For street names containing number, please write them in words.'
 	},
 	required: false
 };
