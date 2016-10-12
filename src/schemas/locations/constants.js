@@ -18,5 +18,9 @@ export default {
 	FLOOR_NUMBERS: {
 		MIN: 0,
 		MAX: 100
+	},
+	ROOM_NUMBER: {
+		MIN: 1,
+		MAX: 1000
 	}
 };
