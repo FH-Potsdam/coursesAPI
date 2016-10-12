@@ -1,4 +1,4 @@
 import { Schema } from 'mongoose';
-import * as keys from './keys';
+import { getKeyFromDir } from '../schemaUtils';
 
-export default new Schema(keys);
+export default new Schema(getKeyFromDir('./keys'));
