@@ -19,9 +19,5 @@ export const isName = (value) => /^[\pL\-\ \']*$/g.test(value);
 export const isLatLng = (value) =>
 	/^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}$/g.test(String(value));
 
-export const getKeyFromDir = (path = './') =>
-	readdirSync(path).reduce((accumulator, fileName) =>
-		accumulator[fileName] = require(`${path}/${fileName}`).default, {});
-
 export const isValidEmailAdress = (value) =>
 	/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b$/g.test(value);

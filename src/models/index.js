@@ -1,19 +1,10 @@
 import mongoose from 'mongoose';
-import { readdirSync, statSync } from 'fs';
-import { join } from 'path';
+import teachers from '../schemas/teachers';
+import courses from '../schemas/courses';
+import locations from '../schemas/locations';
 
-const requireSchema = (schemaName) => require(`../schemas/${schemaName}`).default;
-
-const getDirectories = (srcpath) =>
-	readdirSync(srcpath).filter((file) =>
-		statSync(join(srcpath, file)).isDirectory());
-
-const models = {};
-getDirectories(`.${__dirname}src/schemas`).forEach((folderName) => {
-	if (folderName.includes('.')) {
-		return;
-	}
-	models[folderName] = mongoose.model(folderName, requireSchema(folderName));
-});
-
-export default models;
+export default {
+	teachers: mongoose.model('teachers', teachers),
+	courses: mongoose.model('courses', courses),
+	locations: mongoose.model('locations', locations),
+};

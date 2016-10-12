@@ -1,3 +1,4 @@
+import { values } from 'underscore';
 import { LOCATION_TYPES } from '../constants';
 import { isOneOf } from '../../schemaUtils';
 
@@ -10,7 +11,7 @@ export default {
 		validator: isLocationType,
 		message: 'The provided locationType "{VALUE}" is invalid. It has to ' +
 			'be a string of one of the following value: \n' +
-			Object.values(LOCATION_TYPES).join('\n- ')
+			values(LOCATION_TYPES).join('\n- ')
 	},
 	required: false
 };

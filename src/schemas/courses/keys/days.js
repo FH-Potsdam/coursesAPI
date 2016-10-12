@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { values } from 'underscore';
 import { VALID_OCCURENCIES } from '../constants';
 
 const isValidOccurency = (value) =>
@@ -19,7 +20,7 @@ export const daySchema = Schema({
 			validator: isValidOccurency,
 			message: 'You did not provided a valid occurency. The following ' +
 				'occurencies are supported:\n' +
-				Object.values(VALID_OCCURENCIES).join('-\n')
+				values(VALID_OCCURENCIES).join('-\n')
 		},
 		required: true
 	}

@@ -1,7 +1,8 @@
+import { values } from 'underscore';
 import { isOneOf } from '../../schemaUtils';
 import { SUPPORTED_STUDIES } from '../constants';
 
-const supportedStudiesString = Object.values(SUPPORTED_STUDIES).join('\n- ');
+const supportedStudiesString = values(SUPPORTED_STUDIES).join('\n- ');
 const texts = {
 	failedValidation: 'The study "{VALUE}" is not supported yet. For know, ' +
 		'the API supports only the following studies:\n' +

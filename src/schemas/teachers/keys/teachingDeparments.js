@@ -1,3 +1,4 @@
+import { values } from 'underscore';
 import { TEACHING_DEPARTMENTS } from '../constants';
 import { isOneOf } from '../../schemaUtils';
 
@@ -10,7 +11,7 @@ export default {
 		validator: isADepartment,
 		message: 'The provided teachingDeparment "{VALUE}" is invalid. It has to ' +
 			'be a string of one of the following value: \n' +
-			Object.values(TEACHING_DEPARTMENTS).join('\n- ')
+			values(TEACHING_DEPARTMENTS).join('\n- ')
 	},
 	required: false
 };
