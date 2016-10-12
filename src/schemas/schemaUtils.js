@@ -1,5 +1,3 @@
-import { readdirSync } from 'fs';
-
 export const hasLength = (value, expectedLength) =>
 	String(value).length === expectedLength;
 

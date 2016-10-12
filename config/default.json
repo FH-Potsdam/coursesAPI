@@ -1,6 +1,6 @@
 {
 	"database": {
-		"name": "charactersDB",
+		"name": "coursesAPI",
 		"host": "localhost",
 		"port": 27017
 	},

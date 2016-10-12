@@ -1,49 +1,26 @@
 import express from 'express';
-import modelsRoutes from './routes/modelsRoutes';
-import genericError from './routes/genericError';
+import expressCrud from 'express-crud';
+import bodyParser from 'body-parser';
 import logger from './utils/logger';
+import { coursesModel, locationsModel, teachersModel } from './models'
 
 const apiServer = express();
 const my = {};
-const REST2CRUDMAP = {
-	get: 'read',
-	post: 'create',
-	put: 'update',
-	delete: 'delete'
-};
 
 
-my.initModelRoute = (routes, routeHandlers) => {
-	Object.keys(REST2CRUDMAP).forEach((restActionName) => {
-		const crudActionName = REST2CRUDMAP[restActionName];
-
-		Object.keys(routes).forEach((routeType) => {
-			const crudHandler = routeHandlers[routeType][crudActionName];
-			apiServer[restActionName](routes[routeType], crudHandler);
-		});
-	});
-};
-
-
-my.initModelsRoutes = () => {
-	Object.keys(modelsRoutes).forEach((routeName) => {
-		const modelRoutes = {
-			many: `/${routeName}/many`,
-			one: `/${routeName}/one/(:uid)?`
-		};
-		const routeHandlers = modelsRoutes[routeName];
-
-		my.initModelRoute(modelRoutes, routeHandlers);
+my.initModelsRoutes = (server) => {
+	// server.use(bodyParser.urlencoded({ extended: false }))
+	server.use(bodyParser.json())
+	expressCrud(server, {
+		formatResponse: (result) => ({
+			timestamp: Date.now(),
+			data: result
+		})
 	});
 
-	return my;
-};
-
-
-my.initErrorRoute = () => {
-	Object.keys(REST2CRUDMAP).forEach((restAction) => {
-		apiServer[restAction]('*', genericError);
-	});
+	server.crud('courses', coursesModel);
+	server.crud('locations', locationsModel);
+	server.crud('teachers', teachersModel);
 
 	return my;
 };
@@ -61,8 +38,7 @@ my.start = (host = 'localhost', port = 3000) => {
 export default {
 	start(...args) {
 		return my
-			.initModelsRoutes()
-			.initErrorRoute()
+			.initModelsRoutes(apiServer)
 			.start(...args);
 	}
 };
