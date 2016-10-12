@@ -1,4 +1,4 @@
-const isValidEmailAdress = (value) => / \b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b$/g.test(value);
+import { isValidEmailAdress } from '../../schemaUtils';
 
 export default {
 	type: String,

@@ -22,3 +22,6 @@ export const isLatLng = (value) =>
 export const getKeyFromDir = (path = './') =>
 	readdirSync(path).reduce((accumulator, fileName) =>
 		accumulator[fileName] = require(`${path}/${fileName}`).default, {});
+
+export const isValidEmailAdress = (value) =>
+	/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b$/g.test(value);
