@@ -9,7 +9,7 @@ export default {
 		validator: isStudyField,
 		message: 'The provided studyField "{VALUE}" is invalid. It has to ' +
 			'be a string of one of the following value: \n' +
-			STUDY_FIELDS.join('\n- ')
+			Object.values(STUDY_FIELDS).join('\n- ')
 	},
 	required: false
 };
