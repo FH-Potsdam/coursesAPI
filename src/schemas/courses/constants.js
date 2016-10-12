@@ -15,5 +15,17 @@ export default {
 		'monthly': 'monthly: Occurs monthly.',
 		'everyFirstOfMonth': 'everyFirstOfMonth: Occurs every first Date\'s' +
 			' day-of-the-week of the month. i.e. Every month\'s first monday.',
+	},
+	SEMESTER_WEEK_HOURS: {
+		MIN: 1,
+		MAX: 180
+	},
+	CAPACITY: {
+		MIN: 1,
+		MAX: 100
+	},
+	CREDITS: {
+		MIN: 1,
+		MAX: 180
 	}
 };

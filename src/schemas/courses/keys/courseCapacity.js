@@ -1,4 +1,9 @@
-const isValidCapacity = (value) => Boolean(value);
+import { CAPACITY } from '../constants';
+import { isInLengthRange } from '../../schemaUtils';
+
+const { MIN, MAX } = CAPACITY;
+const isValidCapacity = (value) =>
+	isInLengthRange(value, MIN, MAX);
 
 export default {
 	type: Number,
