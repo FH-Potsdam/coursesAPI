@@ -10,7 +10,7 @@ export default {
 	valitade: {
 		validator: isValidCapacity,
 		message: '"{VALUE}" is not a valid courseCapacity. Please enter a' +
-			' number between 1 and 100'
+			` number between ${MIN} and ${MAX}`
 	},
 	required: false
 };
