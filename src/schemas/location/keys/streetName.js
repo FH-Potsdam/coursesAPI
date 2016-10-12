@@ -1,4 +1,4 @@
-<import { isInLengthRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
 
 const isValidStreetname = (title) => isInLengthRange(title, 1, 100);
 
@@ -9,4 +9,5 @@ export default {
 		message: '"{VALUE}" is not a valid street name. Please enter a number ' +
 			'between 1 and 100 characters.'
 	},
+		required: false
 };

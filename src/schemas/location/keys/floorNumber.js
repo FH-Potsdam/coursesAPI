@@ -7,5 +7,5 @@ export default {
 		message: '"{VALUE}" is not a valid floor. Please enter a floor ' +
 			'between 1 and 100.'
 	},
-
+	required: false
 };
