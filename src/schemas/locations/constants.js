@@ -14,5 +14,9 @@ export default {
 		'LW': 'LW: Labore und Werkstätten',
 		'SP': 'SP: Solarpavillon',
 		'CT': 'CT: Studentencafé, „CasinOtopia“'
+	},
+	FLOOR_NUMBERS: {
+		MIN: 0,
+		MAX: 100
 	}
 };

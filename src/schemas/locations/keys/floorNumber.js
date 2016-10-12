@@ -1,11 +1,15 @@
-const isValidFloor = (value) => /^[0-9][0-9]?$/g.test(value);
+import { isInLengthRange } from '../../schemaUtils';
+import { FLOOR_NUMBERS } from '../constants';
+
+const { MIN, MAX } = FLOOR_NUMBERS;
+const isValidFloor = (value) => isInLengthRange(value, MIN, MAX);
 
 export default {
 	type: Number,
 	validate: {
 		validator: isValidFloor,
 		message: '"{VALUE}" is not a valid floor. Please enter a floor ' +
-			'between 1 and 100.'
+			`between ${MIN} and ${MAX}`
 	},
 	required: false
 };
