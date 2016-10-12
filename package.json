@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A REST API designed for study courses",
   "main": "src/index.js",
-  "scripts": {},
   "repository": {
+    "type": "git",
+    "url": "https://github.com/FH-Potsdam/coursesAPI.git"
+  },
+  "scripts": {
     "start": "export NODE_ENV=development ; webpack --env.dev -w & nodemon dist/api.js",
     "build": "webpack --env.prod -p",
     "serve": "export NODE_ENV=production ; node dist/api.js"
