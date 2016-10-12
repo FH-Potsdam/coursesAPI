@@ -1,4 +1,4 @@
-import { STUDY_FIELDS } from '../../constants';
+import { STUDY_FIELDS } from '../constants';
 import { isOneOf } from '../../schemaUtils';
 
 const isStudyField = (value) => isOneOf(value, Object.keys(STUDY_FIELDS));

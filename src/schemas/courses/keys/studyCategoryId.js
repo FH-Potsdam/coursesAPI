@@ -1,4 +1,4 @@
-import range from 'underscore/range';
+import { range } from 'underscore';
 import { isOneOf } from '../../schemaUtils';
 
 const isStudyCategoryId = (value) => isOneOf(value, range(1, 6));
