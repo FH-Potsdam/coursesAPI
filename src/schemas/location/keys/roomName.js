@@ -1,4 +1,4 @@
-<import { isInLengthRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
 
 const isValidName = (title) => isInLengthRange(title, 1, 1000);
 

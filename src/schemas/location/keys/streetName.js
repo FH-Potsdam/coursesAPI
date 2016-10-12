@@ -1,4 +1,4 @@
-<import { isInLengthRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
 
 const isValidStreetname = (title) => isInLengthRange(title, 1, 100);
 

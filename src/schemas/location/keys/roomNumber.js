@@ -1,4 +1,4 @@
-<import { isInLengthRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
 
 const isValidRoomNumber = (title) => isInLengthRange(String(title), 1, 4);
 

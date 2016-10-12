@@ -1,4 +1,4 @@
-<import { isInLengthRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
 
 const isValidPostalCode = (title) => isInLengthRange(String(title), 1, 8);
 

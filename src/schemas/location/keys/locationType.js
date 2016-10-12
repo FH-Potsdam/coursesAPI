@@ -1,7 +1,8 @@
-import { LOCATION_TYPES } from '../../constants';
+import { LOCATION_TYPES } from '../constants';
 import { isOneOf } from '../../schemaUtils';
 
-const isLocationType = (value) => isOneOf(value, Object.keys(LOCATION_TYPES));
+const isLocationType = (value) =>
+	isOneOf(value, Object.keys(parseInt(LOCATION_TYPES, 10)));
 
 export default {
 	type: String,
