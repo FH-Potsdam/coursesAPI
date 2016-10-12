@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "export NODE_ENV=development ; webpack --env.dev -w & nodemon dist/api.js",
-    "build": "webpack --env.prod -p",
+    "build": "webpack --env.prod",
     "serve": "export NODE_ENV=production ; node dist/api.js"
   },
   "keywords": [

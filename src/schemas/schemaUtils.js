@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs';
+import { getDirNames, genericLoad } from '../utils/loadUtil';
 
 export const hasLength = (value, expectedLength) =>
 	String(value).length === expectedLength;
@@ -19,6 +19,11 @@ export const isName = (value) => /^[\pL\-\ \']*$/g.test(value);
 export const isLatLng = (value) =>
 	/^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}$/g.test(String(value));
 
-export const getKeyFromDir = (path = './') =>
-	readdirSync(path).reduce((accumulator, fileName) =>
-		accumulator[fileName] = require(`${path}/${fileName}`).default, {});
+export const getKeysFromDir = (dirName) =>
+	getDirNames(`./${dirName}`).reduce((accumulator, folderName) => {
+		if (folderName.includes('.')) {
+			return;
+		}
+		accumulator[folderName] = genericLoad(folderName, `./${dirName}`).default;
+		return accumulator;
+	}, {});
