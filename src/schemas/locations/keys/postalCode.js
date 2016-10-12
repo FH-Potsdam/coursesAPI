@@ -1,13 +1,15 @@
 import { isInLengthRange } from '../../schemaUtils';
+import { POSTAL_CODE } from '../constants';
 
-const isValidPostalCode = (title) => isInLengthRange(String(title), 1, 8);
+const { MIN, MAX } = POSTAL_CODE;
+const isValidPostalCode = (title) => isInLengthRange(String(title), MIN, MAX);
 
 export default {
 	type: Number,
 	validate: {
 		validator: isValidPostalCode,
 		message: '"{VALUE}" is not a valid postal code. Please enter a number ' +
-			'between 1 and 8 characters.'
+			`between ${MIN} and ${MAX} characters.`
 	},
 	required: false
 };
