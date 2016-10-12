@@ -13,3 +13,5 @@ export const isInWordsRange = (value, minLength, maxLength) =>
 	isInLengthRange(value.match(/\S+/g), minLength, maxLength);
 
 export const isName = (value) => /^[\pL\-\ \']*$/g.test(value);
+
+export const isLonLan = (value) => /^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}$/g.test(value);
