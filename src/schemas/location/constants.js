@@ -4,5 +4,15 @@ export default {
 		'2': '2 (Theorieraum)',
 		'3': '3 (Hörsaal)',
 		'4': '4 (Sonstiges)'
+	},
+	VALID_BUILDINGS: {
+		'H3': 'H3: Sozial- und Bildungs- wissenschaften, Informa- tionswissenschaften',
+		'H4': 'H4: Hochschulleitung, Angewandte Forschung, Transfer, Weiterbildung Serviceeinrichtungen, AStA',
+		'H5': 'H5: Architektur und Städtebau, Restaurierung, Kulturarbeit, Familie',
+		'D': 'D: Design, Architektur, EMW',
+		'HG': 'HG: Hörsäle, Bibliothek, Studierendenservice, Mensa, Poststelle',
+		'LW': 'LW: Labore und Werkstätten',
+		'SP': 'SP: Solarpavillon',
+		'CT': 'CT: Studentencafé, „CasinOtopia“'
 	}
 };
