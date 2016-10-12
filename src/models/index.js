@@ -1,15 +1,19 @@
 import mongoose from 'mongoose';
-import { readdirSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
+import { join } from 'path';
 
 const requireSchema = (schemaName) => require(`../schemas/${schemaName}`).default;
 
+const getDirectories = (srcpath) =>
+	readdirSync(srcpath).filter((file) =>
+		statSync(join(srcpath, file)).isDirectory());
+
 const models = {};
-readdirSync(`.${__dirname}src/schemas`).forEach((fileName) => {
-	if (fileName === 'index.js' || !fileName.includes('.js')) {
+getDirectories(`.${__dirname}src/schemas`).forEach((folderName) => {
+	if (folderName.includes('.')) {
 		return;
 	}
-	const modelName = /(.*)\.js$/.exec(fileName)[1];
-	models[modelName] = mongoose.model(modelName, requireSchema(modelName));
+	models[folderName] = mongoose.model(folderName, requireSchema(folderName));
 });
 
 export default models;
