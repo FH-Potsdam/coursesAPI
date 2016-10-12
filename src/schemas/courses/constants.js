@@ -6,5 +6,14 @@ export default {
 		'ID': 'ID (Interface Design)',
 		'PD': 'PD (Product Design)',
 		'KD': 'KD (Graphic Design)'
+	},
+	VALID_OCCURENCIES: {
+		'daily': 'daily: Occurs once a day.',
+		'weekly': 'weekly: Occurs once a week.',
+		'everyTwoWeeks': 'everyTwoWeeks: Occurs every two weeks.',
+		'everyThreeWeeks': 'everyThreeWeeks: Occurs every three weeks.',
+		'monthly': 'monthly: Occurs monthly.',
+		'everyFirstOfMonth': 'everyFirstOfMonth: Occurs every first Date\'s' +
+			' day-of-the-week of the month. i.e. Every month\'s first monday.',
 	}
 };
