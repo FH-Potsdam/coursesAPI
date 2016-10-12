@@ -7,5 +7,5 @@ export default {
 		message: '"{VALUE}" is not a valid building. Please enter a building ' +
 			'LW, D, HG, SP, CT, H3, H1, H3, IBZ, H4, H5'
 	},
-
+		required: false
 };
