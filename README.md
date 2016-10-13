@@ -87,6 +87,11 @@ curl -i -X http://localhost:3000/relationships/
 
 The name of the resources and the collection will always be written in lowercase and in the plural form to avoid inconsistencies and improve intuitiveness.
 
+# Related Repositories
+- [Data Scraper](https://github.com/FH-Potsdam/fhpCoursesScraper)
+- [Viewer (App)](https://github.com/FH-Potsdam/coursesViewer)
+
+
 ## Collaborators
 - [Julia Freyhoff](https://github.com/antsteelmule) — @antsteelmule
 - [Lucas Vogel](https://github.com/vogelino) — @vogelino
