@@ -3,6 +3,10 @@
 # Courses API 
 A REST API designed to create, read, update and delete study courses (CRUD).
 
+# Related Repositories
+- [Data Scraper](https://github.com/FH-Potsdam/fhpCoursesScraper)
+- [Viewer (App)](https://github.com/FH-Potsdam/coursesViewer)
+
 ## Collaborators
 - [Julia Freyhoff](https://github.com/antsteelmule) — @antsteelmule
 - [Lucas Vogel](https://github.com/vogelino) — @vogelino
