@@ -7,5 +7,8 @@ export default {
 		message: 'The provided studyCode "{VALUE}" is not valid. It should' +
 			' be something like 12FOKd-MG or 11At-Z'
 	},
-	required: false
+	required: [
+		true,
+		'A study code is required. Please provide one. i.e. 11EG-B'
+	]
 };

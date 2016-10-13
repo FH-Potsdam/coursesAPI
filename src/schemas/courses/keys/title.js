@@ -1,13 +1,15 @@
-import { isInWordsRange } from '../../schemaUtils';
+import { isInLengthRange } from '../../schemaUtils';
+import { TITLE } from '../constants';
 
-const isValidTitle = (title) => isInWordsRange(title, 1, 100);
+const { MIN, MAX } = TITLE;
+const isValidTitle = (title) => isInLengthRange(title.length, MIN, MAX);
 
 export default {
 	type: String,
 	validate: {
 		validator: isValidTitle,
 		message: '"{VALUE}" is not a valid title. Please enter a title ' +
-			'between 1 and 100 characters.'
+			`between ${MIN} and ${MAX} characters.`
 	},
 	required: [
 		true,

@@ -10,7 +10,7 @@ export const isInLengthRange = (value, minLength, maxLength) =>
 	value >= minLength && value <= maxLength;
 
 export const isInWordsRange = (value, minLength, maxLength) =>
-	isInLengthRange(value.match(/\S+/g), minLength, maxLength);
+	isInLengthRange(value.split(/\S+/g).length, minLength, maxLength);
 
 export const isName = (value) => /^[\pL\-\ \']*$/g.test(value);
 

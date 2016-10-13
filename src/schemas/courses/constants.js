@@ -34,6 +34,11 @@ export const CREDITS = {
 };
 
 export const DESCRIPTION = {
-	MIN: 100,
+	MIN: 5,
 	MAX: 1000
+};
+
+export const TITLE = {
+	MIN: 1,
+	MAX: 200
 };
