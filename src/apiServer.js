@@ -11,12 +11,7 @@ const my = {};
 my.initModelsRoutes = (server) => {
 	// server.use(bodyParser.urlencoded({ extended: false }))
 	server.use(bodyParser.json())
-	expressCrud(server, {
-		formatResponse: (result) => ({
-			timestamp: Date.now(),
-			data: result
-		})
-	});
+	expressCrud(server);
 
 	server.crud('courses', coursesModel);
 	server.crud('locations', locationsModel);

@@ -3,8 +3,21 @@ import teachersSchema from '../schemas/teachers';
 import coursesSchema from '../schemas/courses';
 import locationsSchema from '../schemas/locations';
 
-const curyResolve = (cb) => (response) => cb(null, response);
-const curyReject = (cb) => (err) => cb(err, null);
+mongoose.Promise = global.Promise;
+
+const formatResponse = (status, response) => ({
+	status,
+	[status === 'success' ? 'data' : 'error']: response
+});
+const formatMongoError = ({ name, errors = [] }) => ({
+	type: name,
+	messages: Object.keys(errors).map((errKey) =>
+		`${errKey}: ${errors[errKey].message}`)
+});
+const curyResolve = (cb) => (response) =>
+	cb(null, formatResponse('success', response));
+const curyReject = (cb) => (error) =>
+	cb(null, formatResponse('error', formatMongoError(error)));
 const curyCallback = (niceCb) => (...args) => {
 	const cb = args[args.length - 1];
 	const resolve = curyResolve(cb);
@@ -35,8 +48,26 @@ const createCrudHandlers = (modelName, model) => {
 				return resolve(updatedEntry);
 			});
 		}),
-		delete: () => {}, // (id, query, cb) => {},
-		update: () => {} // (id, query, model, cb) => {},
+		delete: curyCallback((reject, resolve, id) => { // takes query as last argument
+			mongoose.model(modelName)
+				.findOne({ _id: id })
+				.remove()
+				.catch(reject)
+				.then(resolve);
+		}),
+		update: curyCallback((reject, resolve, id, query) => { // takes model as last argument
+			mongoose.model(modelName)
+				.findOne({ _id: id })
+				.catch(reject)
+				.then((response) => {
+					if (query) {
+						Object.assign(response, query);
+					}
+					response.save()
+						.catch(reject)
+						.then(resolve)
+				});
+		}),
 	};
 };
 
