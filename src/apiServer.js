@@ -1,17 +1,29 @@
 import express from 'express';
 import expressCrud from 'express-crud';
-import bodyParser from 'body-parser';
 import logger from './utils/logger';
+import middlewares from './utils/middlewares';
 import { coursesModel, locationsModel, teachersModel } from './models'
 
 const apiServer = express();
 const my = {};
 
 
+my.initMiddlewares = (server, middlewares) => {
+	middlewares.forEach((middleware) => server.use(middleware));
+	return my;
+};
+
+
 my.initModelsRoutes = (server) => {
-	// server.use(bodyParser.urlencoded({ extended: false }))
-	server.use(bodyParser.json())
-	expressCrud(server);
+	expressCrud(server, {
+		formatResponse(response) {
+			const { data, status } = response[0];
+			return {
+				status,
+				[status === 'success' ? 'data' : 'error']: data
+			};
+		}
+	});
 
 	server.crud('courses', coursesModel);
 	server.crud('locations', locationsModel);
@@ -33,6 +45,7 @@ my.start = (host = 'localhost', port = 3000) => {
 export default {
 	start(...args) {
 		return my
+			.initMiddlewares(apiServer, middlewares)
 			.initModelsRoutes(apiServer)
 			.start(...args);
 	}
