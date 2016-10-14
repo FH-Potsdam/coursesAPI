@@ -8,7 +8,9 @@
     "url": "https://github.com/FH-Potsdam/coursesAPI.git"
   },
   "scripts": {
-    "start": "export NODE_ENV=development ; webpack --env.dev -w & nodemon dist/api.js",
+    "deploy": "git push heroku master",
+    "start": "npm run build && npm run serve",
+    "watch": "export NODE_ENV=development ; webpack --env.dev -w & nodemon dist/api.js",
     "build": "webpack --env.prod -p",
     "serve": "export NODE_ENV=production ; node dist/api.js"
   },
