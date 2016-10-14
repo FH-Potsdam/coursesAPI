@@ -6,7 +6,7 @@ import dbServer from './dbServer';
 
 const apiConfig = {
 	host: process.env.API_HOST || config.get('api').host,
-	port: process.env.API_PORT || config.get('api').port
+	port: process.env.PORT || config.get('api').port
 };
 
 const dbConfig = {
