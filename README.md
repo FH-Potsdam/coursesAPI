@@ -5,8 +5,8 @@ A REST API designed to create, read, update and delete study courses (CRUD).
 
 ## Prerequisites
 To contribute to the development and to run the courses API, make sure you fulfill the following prerequisites:
-- You have [nvm][nvm] installed and installed ``node: 6.7.0`` and ``npm: 3.10.3`` OR your node and npm versions are exactly these ones. (I recommend installing them with [nvm][nvm])
-- You have both ``mongo`` (3.2.9^) and ``mongod`` (db version v3.2.9^) installed on your machine
+- You have ``node (6.7.0)`` and ``npm (3.10.3)`` installed. (I recommend installing them with [nvm][nvm])
+- You have both ``mongo (3.2.9)^`` and ``mongod (db version v3.2.9^)`` installed.
 
 ## Quick start
 
@@ -19,7 +19,7 @@ If you have [nvm][nvm] installed, run:
 ```sh
 nvm use
 ```
-Instal the node dependencies (npm):
+Install the node dependencies (npm):
 ```sh
 npm install
 ```
@@ -39,7 +39,7 @@ npm run watch
 ```
 Try it (Example using the defaults. Adapt it to your config):
 ```sh
-curl -i -X http://localhost:3000/courses/?limit=5
+curl -i -X http://localhost:3000/courses?limit=5
 ```
 
 ### Quick start: Production
@@ -62,35 +62,32 @@ curl -i -X http://my-online-api-server.com/courses/?limit=5
 ```
 
 ## Courses API data
-The courses data includes Schema the following datatypes:
-- **A course**: Information about a study course teached in a school at a specific semester.
-- **A school**: Information about a school providing courses.
-- **A professor**: Information about a professor acossiated to courses and schools.
-- **A location**: Information about a specific location where one or many courses take place.
-- **A relationship**: Information about courses dependencies. I.e. Course B requires students to first graduate the course A.
+The courses data consists of the following resources:
+- :white_check_mark: **A course**: Information about a study course teached in a school at a specific semester.
+- :white_medium_square: **A school**: Information about a school offering courses.
+- :white_check_mark: **A teacher**: Information about a teacher acossiated to courses and schools.
+- :white_check_mark: **A location**: Information about a specific location where one or many courses take place.
+- :white_medium_square: **A relationship**: Information about courses dependencies. I.e. Course B requires students to first graduate the course A.
 
-To better understand how a course is structured, refer to the documentation:
-[Data types, Data Schemas, Data Structure and data relationships][docDataType] WIP
+Resources with :white_check_mark: are already implemented and others are to follow.
 
-This structure of the Schemas represent the collections that are to be found in the database as well as the resources of the REST API. This means will be found as such in the url of the requests. Example:
-```sh
-curl -i -X http://localhost:3000/courses/ # Request all resources
-curl -i -X http://localhost:3000/courses/267849534729572394 # Request an individual resource
+Resources names are consistent through the whole programm. They are used for collections in the MongoDB database, for the mongoose Schemas and in the REST API urls. They are always written in lowercase and in the plural form to avoid inconsistencies and improve intuitiveness.
 
-# This applies for any collection:
-curl -i -X http://localhost:3000/courses/
-curl -i -X http://localhost:3000/schools/
-curl -i -X http://localhost:3000/professors/
-curl -i -X http://localhost:3000/locations/
-curl -i -X http://localhost:3000/relationships/
-```
+This enables us to improve upon existing resources easier and in a generic fashion. In the future, you will just have to add a mongoose Schema with a lowercase plural name, and automatically, an url, a collection and all CRUD actions will be available for this resource.  
 
-The name of the resources and the collection will always be written in lowercase and in the plural form to avoid inconsistencies and improve intuitiveness.
+To better understand how a resource is structured, refer to the documentation:
+[Types, Schemas, Structure and Relationships][docDataType] WIP
 
-# Related Repositories
-- [Data Scraper](https://github.com/FH-Potsdam/fhpCoursesScraper)
-- [Viewer (App)](https://github.com/FH-Potsdam/coursesViewer)
+# Motivation
+This project has been made as project of the 2 weeks long Workshop "Creating an open sourced REST API" given by Julia Freyhoff @antsteelmule and Lucas Vogel @vogelino in the University of Applied Sciences Potsdam.
 
+This project was done in parallel with two other projects:
+- :octocat: [Data Scraper](https://github.com/FH-Potsdam/fhpCoursesScraper)
+A webscraper extracting information about the courses of the University of Applied Sciences Potsdam to fill the MongoDB database.
+- :octocat: [Viewer (App)](https://github.com/FH-Potsdam/coursesViewer)
+An html website using the courses API to display all the available courses. This project was used as a demonstration of an API usage with ajax loading.
+
+If you want to know more about the Project and/or the Workshop, look at our [documentation](https://fhp.incom.org/projekt/7668) (german), or get in touch with us.
 
 ## Collaborators
 - [Julia Freyhoff](https://github.com/antsteelmule) — @antsteelmule
