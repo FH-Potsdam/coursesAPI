@@ -5,7 +5,10 @@ import locationsSchema from '../schemas/locations';
 
 mongoose.Promise = global.Promise;
 
-const formatResponse = (status, data) => [{ status, data }];
+const formatResponse = (status, data) => [{
+	status,
+	data
+}];
 
 const formatMongoError = ({
 	name,
@@ -37,13 +40,17 @@ const createCrudHandlers = (modelName, model) => {
 		read: curyCallback((reject, resolve, query) =>
 			mongoose.model(modelName)
 				.find()
+				.populate('teachers locations courses')
 				.limit((query.limit && parseInt(query.limit, 10)) || 10)
+				.exec()
 				.catch(reject)
 				.then(resolve)),
 
 		readById: curyCallback((reject, resolve, id) => // takes query as last argument
 			mongoose.model(modelName)
 				.findOne({ _id: id })
+				.populate('teachers locations courses')
+				.exec()
 				.catch(reject)
 				.then(resolve)),
 
